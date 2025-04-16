@@ -7,6 +7,7 @@ import Controllers.MetodosBusqueda;
 import Models.Persona;
 
 public class App {
+
     static Scanner leer = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
@@ -20,6 +21,7 @@ public class App {
         personas[6] = new Persona(107, "Luis");
         System.out.println("La lista ingresada es: ");
         MetodosBusqueda mB = new MetodosBusqueda(personas);
-
+        mB.showPerson();
+        mB.showPersonByName();
     }
 }

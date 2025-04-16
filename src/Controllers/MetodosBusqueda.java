@@ -3,6 +3,8 @@ package Controllers;
 import Models.Persona;
 import views.ShowConsole;
 
+import java.util.Objects;
+
 public class MetodosBusqueda {
 
     private Persona[] people;
@@ -12,7 +14,6 @@ public class MetodosBusqueda {
     public MetodosBusqueda(Persona[] persons) {
         showConsole = new ShowConsole();
         this.people = persons;
-        showPerson();
     }
 
     public int busquedaLineal(int[] array, int elemento) {
@@ -39,6 +40,7 @@ public class MetodosBusqueda {
         return -1;
     }
 
+
     public void showPerson() {
         int codeToFind = showConsole.inputCode();
         int indexPerson = findPersonByCode(codeToFind);
@@ -51,13 +53,23 @@ public class MetodosBusqueda {
         }
     }
 
-    public int findPersonByName() {
+    public int findPersonByName(String code2) {
+        for (int i = 0; i < people.length; i++) {
+            if (Objects.equals(people[i].getName(), code2)) {
+                return i;
+            }
+        }
         return -1;
     }
 
-    public void showPErsonByName() {
+    public void showPersonByName() {
         String nameToFind = showConsole.inputName();
         int indexPerson = findPersonByName(nameToFind);
-
+        if (indexPerson >= 0) {
+            showConsole.showMessage("Persona de nombre " + nameToFind + " encontrada");
+            showConsole.showMessage(people[indexPerson].toString());
+        } else {
+            showConsole.showMessage("Persona no encontrada");
+        }
     }
 }

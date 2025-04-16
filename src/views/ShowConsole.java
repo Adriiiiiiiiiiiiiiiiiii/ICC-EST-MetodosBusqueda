@@ -20,6 +20,12 @@ public class ShowConsole {
         return code;
     }
 
+    public  String inputName() {
+        System.out.println("Ingrese el nombre");
+        String code2= scanner.next();
+        return code2;
+    }
+
     public void showMessage(String message) {
         System.out.println(message);
     }
